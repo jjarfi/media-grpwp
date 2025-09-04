@@ -3,9 +3,10 @@
     "version": "1.0.0",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "chmod +x node_modules/.bin/vite && vite build",
         "preview": "vite preview",
-        "lint": "eslint --fix . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+        "lint": "eslint --fix . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+        "vercel-build": "npm install --legacy-peer-deps && chmod +x node_modules/.bin/vite && vite build"
     },
     "dependencies": {
         "@primevue/themes": "^4.0.0",
