@@ -1,0 +1,70 @@
+<script setup>
+import { ref } from 'vue';
+
+import AppMenuItem from './AppMenuItem.vue';
+
+const model = ref([
+    {
+        label: 'Negara West Papua',
+        items: [
+            { label: 'Beranda', icon: 'pi pi-fw pi-home', to: '/' },
+            { label: 'Konstitusi ', icon: 'pi pi-fw pi-circle', to: '/nwp/konstitusi', class: 'rotated-icon' },
+            { label: 'Profil Negara', icon: 'pi pi-fw pi-circle', to: '/nwp/profil', class: 'rotated-icon' },
+            { label: 'Green State Vision (GSV)', icon: 'pi pi-fw pi-circle', to: '/nwp/gsv', class: 'rotated-icon' },
+            {
+                label: 'Lembaga Negara',
+                icon: 'pi pi-fw pi-circle',
+                items: [
+                    { label: 'Executive Council', icon: 'pi pi-fw pi-circle', to: '/nwp/mamta', class: 'rotated-icon' },
+                    { label: 'Legislative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/saireri' },
+                    { label: 'Judicative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/douberay' }
+                ]
+            },
+            {
+                label: 'Wilayah Adat',
+                icon: 'pi pi-fw pi-circle',
+                items: [
+                    { label: 'Mamta', icon: 'pi pi-fw pi-circle', to: '/nwp/mamta', class: 'rotated-icon' },
+                    { label: 'Saireri', icon: 'pi pi-fw pi-circle', to: '/nwp/saireri' },
+                    { label: 'Douberay', icon: 'pi pi-fw pi-circle', to: '/nwp/douberay' },
+                    { label: 'Bomberay', icon: 'pi pi-fw pi-circle', to: '/nwp/bomberay' },
+                    { label: 'Mee Pago', icon: 'pi pi-fw pi-circle', to: '/nwp/meepago' },
+                    { label: 'La Pago', icon: 'pi pi-fw pi-circle', to: '/nwp/lapago' },
+                    { label: 'Anim Ha', icon: 'pi pi-fw pi-circle', to: '/nwp/animha' }
+                ]
+            }
+        ]
+    },
+    {
+        label: 'Materi Sosialisasi',
+        items: [{ label: 'Materi DIKPOL', icon: 'pi pi-fw pi-circle', to: '/pages/dikpol' }]
+    },
+    {
+        label: 'Kategori Arsip',
+        items: [
+            { label: 'IPWP', icon: 'pi pi-fw pi-circle', to: '/pages/ipwp', class: 'rotated-icon' },
+            { label: 'ILWP', icon: 'pi pi-fw pi-circle', to: '/pages/ilwp' },
+            { label: 'ULMWP - Prov Gov', icon: 'pi pi-fw pi-circle', to: '/pages/ulmwp' },
+            { label: 'Melanesia', icon: 'pi pi-fw pi-circle', to: '/pages/melanesia' },
+            { label: 'West Papua', icon: 'pi pi-fw pi-circle', to: '/pages/westpapua' },
+            { label: 'UNIKAB', icon: 'pi pi-fw pi-circle', to: '/pages/unikab' }
+        ]
+    }
+]);
+</script>
+
+<template>
+    <ul class="layout-menu">
+        <template v-for="(item, i) in model" :key="item">
+            <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
+            <li v-if="item.separator" class="menu-separator"></li>
+        </template>
+    </ul>
+</template>
+
+<style lang="scss" scoped>
+.custom-icon {
+    width: 24px; /* Adjust the size as needed */
+    height: 24px; /* Adjust the size as needed */
+}
+</style>
