@@ -37,7 +37,10 @@ const model = ref([
     },
     {
         label: 'Materi Sosialisasi',
-        items: [{ label: 'Materi DIKPOL', icon: 'pi pi-fw pi-circle', to: '/pages/dikpol' }]
+        items: [
+            { label: 'Materi DIKPOL', icon: 'pi pi-fw pi-circle', to: '/pages/dikpol' },
+            { label: 'Materi UUDS', icon: 'pi pi-fw pi-circle', to: '/pages/uuds' }
+        ]
     },
     {
         label: 'Kategori Arsip',
@@ -46,8 +49,8 @@ const model = ref([
             { label: 'ILWP', icon: 'pi pi-fw pi-circle', to: '/pages/ilwp' },
             { label: 'ULMWP - Prov Gov', icon: 'pi pi-fw pi-circle', to: '/pages/ulmwp' },
             { label: 'Melanesia', icon: 'pi pi-fw pi-circle', to: '/pages/melanesia' },
-            { label: 'West Papua', icon: 'pi pi-fw pi-circle', to: '/pages/westpapua' },
-            { label: 'UNIKAB', icon: 'pi pi-fw pi-circle', to: '/pages/unikab' }
+            { label: 'West Papua', icon: 'pi pi-fw pi-circle', to: '/pages/westpapua' }
+            // { label: 'UNIKAB', icon: 'pi pi-fw pi-circle', to: '/pages/unikab' }
         ]
     }
 ]);

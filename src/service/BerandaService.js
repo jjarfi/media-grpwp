@@ -687,38 +687,38 @@ export const BerandaService = {
             },
             {
                 id: 57,
-                title: 'Memahami BAB XVII tentang Kekayaan',
+                title: 'BAB XVII - Kekayaan',
                 image: '/demo/img/dikpol/5-ID.jpg',
                 description: 'Memahami BAB XVII tentang Kekayaan',
                 lang: 'ID',
                 author: 'JJ',
                 year: '2025',
                 datetime: '2025-07-14 19:48',
-                category: 'DIKPOL',
+                category: 'UUDS',
                 pdfile: '/demo/pdf/DIKPOL/5-ID.pdf'
             },
             {
                 id: 58,
-                title: 'Memahami BAB XV tentang Pengambilan Keputusan',
+                title: 'BAB XV - Pengambilan Keputusan',
                 image: '/demo/img/dikpol/6-ID.jpg',
                 description: 'Memahami BAB XV tentang Pengambilan Keputusan',
                 lang: 'ID',
                 author: 'JJ',
                 year: '2025',
                 datetime: '2025-07-15 19:48',
-                category: 'DIKPOL',
+                category: 'UUDS',
                 pdfile: '/demo/pdf/DIKPOL/6-ID.pdf'
             },
             {
                 id: 59,
-                title: 'Memahami BAB VI tentang Legislative Council',
+                title: 'BAB VII - Legislative Council',
                 image: '/demo/img/dikpol/7-ID.jpg',
-                description: 'Memahami BAB VI tentang Legislative Council',
+                description: 'Memahami BAB VII tentang Legislative Council',
                 lang: 'ID',
                 author: 'JJ',
                 year: '2025',
                 datetime: '2025-07-16 19:48',
-                category: 'DIKPOL',
+                category: 'UUDS',
                 pdfile: '/demo/pdf/DIKPOL/7-ID.pdf'
             },
             {
@@ -999,14 +999,14 @@ export const BerandaService = {
             },
             {
                 id: 83,
-                title: 'Memahami BAB VI tentang Badan Pertahanan & Keamanan',
+                title: 'BAB VI - Badan Pertahanan & Keamanan',
                 image: '/demo/img/dikpol/16-ID.jpg',
                 description: 'Memahami BAB VI tentang Badan Pertahanan & Keamanan',
                 lang: 'ID',
                 author: 'JJ',
                 year: '2025',
                 datetime: '2025-07-18 19:48',
-                category: 'DIKPOL',
+                category: 'UUDS',
                 pdfile: '/demo/pdf/DIKPOL/16-ID.pdf'
             },
             {
@@ -1023,14 +1023,14 @@ export const BerandaService = {
             },
             {
                 id: 85,
-                title: 'Memahami BAB II tentang Kongres',
+                title: 'BAB II - Kongres',
                 image: '/demo/img/dikpol/17-ID.jpg',
                 description: 'Memahami BAB II tentang Kongres',
                 lang: 'ID',
                 author: 'JJ',
                 year: '2025',
                 datetime: '2025-07-18 19:48',
-                category: 'DIKPOL',
+                category: 'UUDS',
                 pdfile: '/demo/pdf/DIKPOL/17-ID.pdf'
             }
         ];

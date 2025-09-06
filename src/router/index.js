@@ -44,6 +44,11 @@ const router = createRouter({
                     component: () => import('@/views/pages/DIKPOLDoc.vue')
                 },
                 {
+                    path: '/pages/uuds',
+                    name: 'uuds',
+                    component: () => import('@/views/pages/UUDSDoc.vue')
+                },
+                {
                     path: '/pages/westpapua',
                     name: 'westpapua',
                     component: () => import('@/views/pages/WestPapuaDoc.vue')
