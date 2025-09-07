@@ -62,13 +62,6 @@ const openDrawer = (item, index) => {
     visible.value = true; // Buka Drawer
     page.value = 1; // Reset ke halaman pertama
 };
-const openInNewTab = () => {
-    if (pdfUrl.value) {
-        window.open(pdfUrl.value, '_blank');
-    } else {
-        console.warn('PDF tidak tersedia untuk item ini.');
-    }
-};
 
 watch(selectedItem, async (newItem) => {
     if (newItem && newItem.pdfile) {
@@ -77,6 +70,15 @@ watch(selectedItem, async (newItem) => {
         isLoading.value = false; // End loading
     }
 });
+
+const downloadPDF = () => {
+    if (selectedItem.value?.pdfile) {
+        const link = document.createElement('a');
+        link.href = selectedItem.value.pdfile; // URL PDF dari data
+        link.download = selectedItem.value.title ? `${selectedItem.value.title}.pdf` : 'document.pdf'; // Nama file
+        link.click();
+    }
+};
 
 const getSeverity = (product) => {
     switch (product.lang) {
@@ -262,7 +264,7 @@ const resetDataView = () => {
             <div class="mt-auto layout-footer relative flex items-center justify-between px-4 py-2">
                 <!-- tombol kiri -->
                 <div>
-                    <Button rounded outlined icon="pi pi-eye" @click="openInNewTab" />
+                    <Button rounded outlined icon="pi pi-download" @click="downloadPDF" />
                 </div>
 
                 <!-- tombol navigasi tengah -->
