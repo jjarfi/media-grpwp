@@ -62,6 +62,13 @@ const openDrawer = (item, index) => {
     visible.value = true; // Buka Drawer
     page.value = 1; // Reset ke halaman pertama
 };
+const openInNewTab = () => {
+    if (pdfUrl.value) {
+        window.open(pdfUrl.value, '_blank');
+    } else {
+        console.warn('PDF tidak tersedia untuk item ini.');
+    }
+};
 
 watch(selectedItem, async (newItem) => {
     if (newItem && newItem.pdfile) {
@@ -191,7 +198,7 @@ const resetDataView = () => {
 
                                         <!-- <Tag icon="pi pi-download" value="100" class="mr-3 bg-surface-50 text-yellow-500 text-sm"></Tag> -->
                                     </div>
-                                    <!-- <div class="p-1" style="border-radius: 15px">
+                                    <div class="p-1" style="border-radius: 15px">
                                         <div
                                             class="bg-surface-0 flex items-center gap-2 justify-center py-1 px-2"
                                             style="
@@ -203,7 +210,7 @@ const resetDataView = () => {
                                         >
                                             <span class="text-surface-900 text-sm">{{ item.year }}</span>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
 
                                 <div class="flex flex-col gap-2">
@@ -252,10 +259,18 @@ const resetDataView = () => {
                 <span class="font-semibold text-md text-primary">{{ selectedItem?.year || 'No Title' }}</span>
             </span>
 
-            <div class="mt-auto layout-footer">
-                <Button rounded label="Prev" icon="pi pi-arrow-left" outlined @click="page = page > 1 ? page - 1 : page" />
-                <span style="padding-left: 2px; padding-right: 2px">{{ page }} / {{ pages }}</span>
-                <Button rounded label="Next" icon="pi pi-arrow-right" outlined @click="page = page < pages ? page + 1 : page" />
+            <div class="mt-auto layout-footer relative flex items-center justify-between px-4 py-2">
+                <!-- tombol kiri -->
+                <div>
+                    <Button rounded outlined icon="pi pi-eye" @click="openInNewTab" />
+                </div>
+
+                <!-- tombol navigasi tengah -->
+                <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
+                    <Button rounded label="Prev" icon="pi pi-arrow-left" outlined @click="page = page > 1 ? page - 1 : page" />
+                    <Button rounded label="Next" icon="pi pi-arrow-right" outlined @click="page = page < pages ? page + 1 : page" />
+                </div>
+                <span> Hal {{ page }} / {{ pages }}</span>
             </div>
         </template>
     </Drawer>
