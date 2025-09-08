@@ -1,6 +1,8 @@
 <script setup>
 import { BerandaService } from '@/service/BerandaService';
 import { VuePDF, usePDF } from '@tato30/vue-pdf';
+import { useToast } from 'primevue/usetoast';
+
 import { computed, onMounted, ref, watch } from 'vue';
 
 const products = ref(null); // Original list of products
@@ -9,7 +11,7 @@ const picklistProducts = ref(null);
 const selectedItem = ref(null);
 const orderlistProducts = ref(null);
 const page = ref(1);
-
+const displayConfirmation = ref(false);
 const layout = ref('grid');
 const value1 = ref(null); // Search input
 const value = ref(null);
@@ -22,6 +24,8 @@ const dialogFilter = ref(false);
 const pdfUrl = ref('');
 const isLoading = ref(false); // Loading state
 const { pdf, pages } = usePDF(pdfUrl);
+const toast = useToast();
+
 const year = ref([]); // Array to hold available years
 const selectedYear = ref({ start: null, end: null }); // Store selected year range
 const defaultCategory = 'Melanesia';
@@ -62,13 +66,6 @@ const openDrawer = (item, index) => {
     visible.value = true; // Buka Drawer
     page.value = 1; // Reset ke halaman pertama
 };
-const openInNewTab = () => {
-    if (pdfUrl.value) {
-        window.open(pdfUrl.value, '_blank');
-    } else {
-        console.warn('PDF tidak tersedia untuk item ini.');
-    }
-};
 
 watch(selectedItem, async (newItem) => {
     if (newItem && newItem.pdfile) {
@@ -77,6 +74,33 @@ watch(selectedItem, async (newItem) => {
         isLoading.value = false; // End loading
     }
 });
+
+const downloadPDF = () => {
+    if (selectedItem.value?.pdfile) {
+        const link = document.createElement('a');
+        link.href = selectedItem.value.pdfile;
+        link.download = selectedItem.value.title ? `${selectedItem.value.title}.pdf` : 'document.pdf';
+        link.click();
+
+        // ✅ Tampilkan toast sukses
+        toast.add({
+            severity: 'success',
+            summary: 'Berhasil',
+            detail: 'File berhasil diunduh',
+            life: 3000
+        });
+
+        closeConfirmation(); // tutup dialog setelah download
+    } else {
+        // ✅ Jika file kosong tampilkan error
+        toast.add({
+            severity: 'error',
+            summary: 'Gagal',
+            detail: 'File tidak tersedia',
+            life: 3000
+        });
+    }
+};
 
 const getSeverity = (product) => {
     switch (product.lang) {
@@ -156,6 +180,13 @@ const resetDataView = () => {
     // Reset search input and year filters
     value1.value = null; // Optionally reset the search input if needed
     selectedYear.value = { start: null, end: null }; // Reset the year filters
+};
+
+const openConfirmation = () => {
+    displayConfirmation.value = true;
+};
+const closeConfirmation = () => {
+    displayConfirmation.value = false;
 };
 </script>
 
@@ -261,9 +292,22 @@ const resetDataView = () => {
 
             <div class="mt-auto layout-footer relative flex items-center justify-between px-4 py-2">
                 <!-- tombol kiri -->
+                <Toast />
+                <ConfirmDialog></ConfirmDialog>
+
                 <div>
-                    <Button rounded outlined icon="pi pi-eye" @click="openInNewTab" />
+                    <Button rounded outlined icon="pi pi-download" @click="openConfirmation()" />
                 </div>
+                <Dialog header="Confirmation" v-model:visible="displayConfirmation" :style="{ width: '350px' }" :modal="true">
+                    <div class="flex items-center justify-center">
+                        <i class="pi pi-exclamation-triangle mr-4" style="font-size: 2rem" />
+                        <span>Apakah anda ingin mendownload file ini?</span>
+                    </div>
+                    <template #footer>
+                        <Button label="Iya" icon="pi pi-check" @click="downloadPDF" rounded outlined autofocus />
+                        <Button label="Tidak" icon="pi pi-times" @click="closeConfirmation" rounded text severity="secondary" />
+                    </template>
+                </Dialog>
 
                 <!-- tombol navigasi tengah -->
                 <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
