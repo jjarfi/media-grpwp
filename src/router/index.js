@@ -64,6 +64,21 @@ const router = createRouter({
                     component: () => import('@/views/nwp/ProfilNegaraDoc.vue')
                 },
                 {
+                    path: '/nwp/executive',
+                    name: 'executive',
+                    component: () => import('@/views/nwp/ExecutiveDoc.vue')
+                },
+                {
+                    path: '/nwp/legislative',
+                    name: 'legislative',
+                    component: () => import('@/views/nwp/LegislativeDoc.vue')
+                },
+                {
+                    path: '/nwp/judicative',
+                    name: 'judicative',
+                    component: () => import('@/views/nwp/JudicativeDoc.vue')
+                },
+                {
                     path: '/nwp/gsv',
                     name: 'gsv',
                     component: () => import('@/views/nwp/GSVDoc.vue')

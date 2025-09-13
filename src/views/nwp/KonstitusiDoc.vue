@@ -60,8 +60,7 @@ const toRoman = (num) => {
                 <!-- Panel BAB I -->
                 <StepPanel value="1" v-slot="{ activateCallback }">
                     <div class="flex flex-col h-full overflow-y-auto p-4 text-justify space-y-4">
-                        <h2 class="text-xl font-bold text-center">BAB I</h2>
-                        <h3 class="text-lg font-semibold text-center">NAMA, BENTUK DAN KEDAULATAN</h3>
+                        <h2 class="text-xl font-bold text-center">BAB I<br />NAMA, BENTUK DAN KEDAULATAN</h2>
 
                         <p>
                             <strong>Pasal 1</strong><br />

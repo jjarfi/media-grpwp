@@ -15,9 +15,9 @@ const model = ref([
                 label: 'Lembaga Negara',
                 icon: 'pi pi-fw pi-circle',
                 items: [
-                    { label: 'Executive Council', icon: 'pi pi-fw pi-circle', to: '/nwp/mamta', class: 'rotated-icon' },
-                    { label: 'Legislative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/saireri' },
-                    { label: 'Judicative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/douberay' }
+                    { label: 'Executive Council', icon: 'pi pi-fw pi-circle', to: '/nwp/executive', class: 'rotated-icon' },
+                    { label: 'Legislative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/legislative' },
+                    { label: 'Judicative Council', icon: 'pi pi-fw pi-circle', to: '/nwp/judicative' }
                 ]
             },
             {
