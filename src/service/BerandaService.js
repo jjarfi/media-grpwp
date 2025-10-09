@@ -1562,6 +1562,30 @@ export const BerandaService = {
                 datetime: '2018-07-18 19:48',
                 category: 'ANIMHA',
                 pdfile: '/demo/pdf/ANIMHA/1-ID.pdf'
+            },
+            {
+                id: 130,
+                title: 'Jenis Surat Resmi Dalam Lembaga Legislative Council',
+                image: '/demo/img/dikpol/18-ID.jpg',
+                description: 'Surat-Surat',
+                lang: 'ID',
+                author: 'GR-PWP',
+                year: '2025',
+                datetime: '2025-07-18 19:48',
+                category: 'DIKPOL',
+                pdfile: '/demo/pdf/DIKPOL/17-ID.pdf'
+            },
+            {
+                id: 131,
+                title: 'Jenis Surat Resmi Dalam Lembaga Executive Council',
+                image: '/demo/img/dikpol/19-ID.jpg',
+                description: 'Surat-Surat',
+                lang: 'ID',
+                author: 'GR-PWP',
+                year: '2025',
+                datetime: '2025-07-18 19:48',
+                category: 'DIKPOL',
+                pdfile: '/demo/pdf/DIKPOL/18-ID.pdf'
             }
         ];
     },
